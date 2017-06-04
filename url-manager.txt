@@ -1,0 +1,7 @@
+從yii 2.0.10之後，urlManager提供URL normalization功能。
+主要的功能有移除url裡連續的 / ，
+或依urlManager屬性$suffix的設定的最後一個字元和目前url比對，
+依需要重新導向具 /  或不具 / 的url。
+如果$suffix最後一個字元是有 /，但目前url沒有，那麼normalizer就會將url重新導向url接/的網址。
+反正，如果$suffix最後一個字元沒有/，但目前url有，normalizer會將url重新向url後不接/的網址。
+

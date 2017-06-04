@@ -1,0 +1,10 @@
+redirect()
+==========
+在redirect()之後的敘述仍然會繼續執行，所以最好搭配return，以避免執行到後面的敘述。
+例如:
+    $this->redirect();
+    return;
+    
+但不可呼叫die()，因為系統會執行停止運作。    
+
+beforeAction會檢查csrfValidation

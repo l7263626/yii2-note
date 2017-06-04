@@ -1,0 +1,8 @@
+下列敘述可執行使用者登入
+Yii::$app->user->login($identity);
+
+其中 $identity 是實作 \yii\web\IdentityInterface 介面的物件
+需落實實作的介面有getId()、findIdentity()。
+另外，需可以存取$identity->username，這是Yii2在登入後預設會顯示的屬性
+
+

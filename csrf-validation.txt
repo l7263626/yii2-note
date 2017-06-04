@@ -1,0 +1,15 @@
+crsf的機制
+由request產生token，丟給response的cookie
+當response::send()的時候會一併呼叫response::sendCookies()(在response::sendHeaders())，
+如果request有丟給response csrfToken的cookie時，
+這時就會設定csrfToken到cookie裡
+
+上面的流程是產生csrfToken時會做的，像是第一次(cookie不存在csrfToken)或者重新產生csrfToken的時候。
+
+當已經存在csrfToken的時候就不會再執行上述的動作，
+直接利用cookie裡的csrfToken，所以response也不會再重新設定csrfToken到cookie。
+
+當呼叫request::getCsrfToken()或request::csrfToken，request會取得cookie裡的csrfToken。
+當取得的csrfToken為null時，request才會去執行上述產生token的流程。
+
+
