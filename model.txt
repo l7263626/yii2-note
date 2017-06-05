@@ -1,0 +1,1 @@
+save attribute是指可以massive assign的attribute。
